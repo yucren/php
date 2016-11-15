@@ -11,6 +11,8 @@ $conn =sqlsrv_connect($sername,$connectinfo);
 if ($conn)
 {
     echo "连接成功";
+    echo "<br>";
+    echo "请接下你的工作";
 }
 else{
 
