@@ -1,33 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user001
- * Date: 2016-11-15
- * Time: 12:50
- */
-$sername="192.168.0.188\ERP,8000";
-$connectinfo=array("UID"=>"sa","PWD"=>"123.123.yu","Database"=>"a");
-$conn =sqlsrv_connect($sername,$connectinfo);
-if ($conn)
+$servername ="yuchengren.oicp.io\ERP,17641";
+$connectinfo=array("UID"=>"sa","PWD"=>"123.123.yu","Database"=>"AIS20160807175904");
+$conn =sqlsrv_connect($servername,$connectinfo);
+$stmt="{call dbo.getuserpass(?,?)}";
+$hello2=str_repeat('a',20);
+$myworld=iconv('utf-8','gbk','俞程仁');
+
+$param=array(array($myworld,SQLSRV_PARAM_IN), array($hello2,SQLSRV_PARAM_OUT) );
+$hello=sqlsrv_query($conn,$stmt,$param);
+$dd=1;
+sqlsrv_fetch($hello);
+while ($hello2 ==str_repeat('a',20))
 {
-    echo "连接成功";
-    echo "<br>";
-    echo "请接下你的工作";
-}
-else{
 
-    die(print_r(sqlsrv_errors()));
+
+    sqlsrv_next_result($hello);
+
 }
-sqlsrv_close($conn);
+echo $hello2;
+
+
 ?>
-<html>
-<head>
-   <title>my php web</title>
-    <meta charset="utf-8">
-</head>
-<body>
-<p>hello world</p>
-</body>
 
 
-</html>
+
