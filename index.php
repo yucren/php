@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>欢迎访问，请登录</title>
+    <title>欢迎访问，请登录谢谢你的帮助</title>
 </head>
 <body>
 <form action="getuser.php" method="post" enctype="multipart/form-data">
